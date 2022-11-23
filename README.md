@@ -1,7 +1,6 @@
 # arc points 3d
 
 Math example how to create a 3d arc.
-Author : Skynet Cybderdyne.
 
 ![screen](https://github.com/grotius-cnc/arc_points_3d/blob/main/screen.jpg)
 
