@@ -1,6 +1,10 @@
-# arc points 3d, by skynet cyberdyne 2022.
+# arc points 3d
 
 Math example how to create a 3d arc.
+Author : Skynet Cybderdyne.
+
+![screen](https://github.com/grotius-cnc/arc_points_3d/blob/main/screen.jpg)
+
 The arcpoint class can be used in your project.
 Here is included a visualisation with opencascade to verify
 the output.
