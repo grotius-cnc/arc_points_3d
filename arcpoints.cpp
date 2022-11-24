@@ -4,13 +4,6 @@
 #define toRadians M_PI/180.0
 #define toDegrees (180.0/M_PI)
 
-//float angle(XYZ a, XYZ b){
-//    float dot = x1*x2 + y1*y2 + z1*z2    #between [x1, y1, z1] and [x2, y2, z2]
-//    lenSq1 = x1*x1 + y1*y1 + z1*z1
-//    lenSq2 = x2*x2 + y2*y2 + z2*z2
-//    float angle = acos(dot/sqrt(lenSq1 * lenSq2));
-//}
-
 //! http://paulbourke.net/geometry/rotate/
 //!
 //!     Rotate a point p by angle theta around an arbitrary line segment p1-p2
@@ -32,7 +25,7 @@ XYZ arcpoints::rotatePointAroundLine(XYZ thePointToRotate,double theta,XYZ theLi
     thePointToRotate.y -= theLineP1.y;
     thePointToRotate.z -= theLineP1.z;
 
-    // Normalise(&r);
+    //! Normalise(&r);
     Eigen::Vector3d v(r.x,r.y,r.z);
     v.norm();
     r.x=v.x();
@@ -57,6 +50,7 @@ XYZ arcpoints::rotatePointAroundLine(XYZ thePointToRotate,double theta,XYZ theLi
     q.x += theLineP1.x;
     q.y += theLineP1.y;
     q.z += theLineP1.z;
+
     return(q);
 }
 
@@ -139,7 +133,7 @@ ARC arcpoints::getArc(Eigen::Vector3d p1, Eigen::Vector3d p2, Eigen::Vector3d p3
 
     std::vector<XYZ> pvec;
     float step=angle/division;
-    for(float i=0; i<=angle; i+=step){
+    for(float i=0; i<angle; i+=step){
         //!         Point to rotate.             Arc center             Point on arc center line. (Arc center + Axis vector)
         XYZ res=rotatePointAroundLine({p1.x(),p1.y(),p1.z()},i,{pc.x(),pc.y(),pc.z()},{pc.x()+an.x(),pc.y()+an.y(),pc.z()+an.z()});
         //! std::cout<<"res x:"<<res.x<<" y:"<<res.y<<" z:"<<res.z<<std::endl;
